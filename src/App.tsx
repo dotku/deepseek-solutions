@@ -98,7 +98,8 @@ function Section({
 
 export default function App() {
   const navigate = useNavigate();
-  const baseURL = new URL(import.meta.url).origin;
+  const baseURL = new URL(import.meta.env.BASE_URL, window.location.origin)
+    .origin;
 
   return (
     <div className="min-h-screen bg-gray-50">
