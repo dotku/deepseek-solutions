@@ -101,6 +101,13 @@ export default function App() {
   const baseURL = new URL(import.meta.env.BASE_URL, window.location.origin)
     .origin;
 
+  console.log(
+    "import.meta.env.BASE_URL",
+    import.meta.env.BASE_URL,
+    "baseURL",
+    baseURL
+  );
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Navigation */}
