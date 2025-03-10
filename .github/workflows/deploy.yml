@@ -20,7 +20,7 @@ jobs:
       - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 16 # Use the Node.js version required by your project
+          node-version: 22 # Use the Node.js version required by your project
           cache: "pnpm" # Enable PNPM dependency caching for faster builds
 
       - name: 📂 Install dependencies
