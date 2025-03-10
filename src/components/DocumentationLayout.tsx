@@ -54,7 +54,9 @@ export default function DocumentationLayout() {
                         key={section.path}
                         to={`/docs/${section.path}`}
                         className={`block px-4 py-2.5 rounded-lg transition-colors ${
-                          currentPath === section.path
+                          currentPath === section.path ||
+                          ((currentPath === "docs" || currentPath === "") &&
+                            section.path === "quick-start")
                             ? "bg-blue-50 text-blue-600 font-medium"
                             : "text-gray-600 hover:bg-gray-100"
                         }`}

@@ -121,25 +121,25 @@ export default function App() {
                 解决方案
               </a>
               <a
-                href="https://sienovo.cn/products"
+                href="https://sienovo.cn/#products"
                 className="text-white hover:text-blue-200 font-medium"
               >
                 产品中心
               </a>
               <a
-                href="https://sienovo.cn/cases"
+                href="https://sienovo.cn/#cases"
                 className="text-white hover:text-blue-200 font-medium"
               >
                 客户案例
               </a>
               <a
-                href="https://sienovo.cn/news"
+                href="https://sienovo.cn/#news"
                 className="text-white hover:text-blue-200 font-medium"
               >
                 新闻中心{" "}
               </a>
               <a
-                href="https://sienovo.cn/about"
+                href="https://sienovo.cn/#about"
                 className="text-white hover:text-blue-200 font-medium"
               >
                 关于我们
@@ -147,7 +147,7 @@ export default function App() {
             </nav>
             <div className="flex items-center">
               <a
-                href="https://sienovo.cn/contact"
+                href="https://sienovo.cn/#contact"
                 className="text-white hover:text-blue-200 font-medium"
               >
                 联系我们
@@ -190,7 +190,7 @@ export default function App() {
                 立即咨询
               </button>
               <button
-                onClick={() => navigate("/solutions")}
+                onClick={() => navigate("/docs")}
                 className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-md font-semibold transition-colors text-lg"
               >
                 了解更多
