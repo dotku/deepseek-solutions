@@ -373,21 +373,30 @@ export default function App() {
           <p className="text-xl mb-8">
             我们的技术团队提供全程部署指导和优化服务
           </p>
-          <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center gap-2 text-lg mb-4">
-              <MessageCircle className="h-6 w-6" />
-              <span>销售咨询微信：xinmai002leo</span>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex items-center gap-2 text-lg">
+                <MessageCircle className="h-6 w-6" />
+                <span>销售咨询微信：xinmai002leo</span>
+              </div>
+              <div className="flex justify-center gap-4">
+                <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                  联系我们
+                </button>
+                <button
+                  onClick={() => navigate("/docs/quick-start")}
+                  className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+                >
+                  技术文档
+                </button>
+              </div>
             </div>
-            <div className="flex justify-center gap-4">
-              <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-                联系我们
-              </button>
-              <button
-                onClick={() => navigate("/docs/quick-start")}
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
-              >
-                技术文档
-              </button>
+            <div className="w-48 bg-white p-3 rounded-lg">
+              <img
+                src="/images/contact-qr.png"
+                alt="技术支持二维码"
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
         </div>
