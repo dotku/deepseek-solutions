@@ -1,36 +1,41 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
-      - main # Run on pushes to the main branch (change if needed)
+      - main # Change this to your default branch
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🚚 Check out source code
-        uses: actions/checkout@v3
-
-      - name: 📦 Install PNPM
-        uses: pnpm/action-setup@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          version: 8 # Specify your pnpm version (optional, uses latest if omitted)
+          fetch-depth: 0
 
-      - name: 🔧 Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 22 # Use the Node.js version required by your project
-          cache: "pnpm" # Enable PNPM dependency caching for faster builds
+          node-version: "22" # Adjust based on your project
 
-      - name: 📂 Install dependencies
-        run: pnpm install
+      - name: Install dependencies
+        run: npm install
 
-      - name: 🛠 Build project
-        run: pnpm run build
+      - name: Build project
+        run: npm run build
 
-      - name: 🚀 Deploy to GitHub Pages
+      # **CLEANUP STEP**
+      - name: Cleanup existing worktree (Fix GitHub Pages Deployment Issue)
+        run: |
+          git worktree remove github-pages-deploy-action-temp-deployment-folder --force || true
+          git worktree prune
+
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # Target branch for GitHub Pages
-          folder: dist # Folder with the compiled output (e.g. build or dist)
+          branch: gh-pages # Ensure this matches your deployment branch
+          folder: dist # Adjust based on your Vite build output
+          clean: true # Ensures old files are removed
+          token: ${{ secrets.GITHUB_TOKEN }}
