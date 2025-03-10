@@ -98,15 +98,6 @@ function Section({
 
 export default function App() {
   const navigate = useNavigate();
-  const baseURL = new URL(import.meta.env.BASE_URL, window.location.origin)
-    .origin;
-
-  console.log(
-    "import.meta.env.BASE_URL",
-    import.meta.env.BASE_URL,
-    "baseURL",
-    baseURL
-  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -402,7 +393,7 @@ export default function App() {
             </div>
             <div className="w-48 bg-white p-3 rounded-lg">
               <img
-                src={`${baseURL}/images/contact-qr.png`}
+                src={`${import.meta.env.BASE_URL}/images/contact-qr.png`}
                 alt="技术支持二维码"
                 className="w-full h-full object-contain"
               />
