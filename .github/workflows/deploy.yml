@@ -23,7 +23,7 @@ jobs:
           cache: "npm"
 
       - name: Install Dependencies
-        run: npm ci # Installs dependencies based on package-lock.json
+        run: pnpm install --frozen-lockfile
 
       - name: Build Project
         run: npm run build # Ensure your build output is in the 'dist' folder
