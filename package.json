@@ -13,6 +13,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "postbuild": "cp dist/index.html dist/404.html",
   "dependencies": {
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
