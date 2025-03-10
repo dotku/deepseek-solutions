@@ -38,4 +38,4 @@ jobs:
           branch: gh-pages # Ensure this matches your deployment branch
           folder: dist # Adjust based on your Vite build output
           clean: true # Ensures old files are removed
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
