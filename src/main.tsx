@@ -1,6 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createHashRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import App from "./App";
 import DocumentationLayout from "./components/DocumentationLayout";
 import QuickStart from "./pages/docs/QuickStart";
@@ -14,7 +19,10 @@ import SystemDownloads from "./pages/docs/SystemDownloads";
 import SalesSupport from "./pages/docs/SalesSupport";
 import "./index.css";
 
-const router = createBrowserRouter([
+const isGithubPages = window.location.hostname.includes("dotku.us");
+const createRouter = isGithubPages ? createHashRouter : createBrowserRouter;
+
+const router = createRouter([
   {
     path: "/",
     element: <App />,
@@ -34,6 +42,11 @@ const router = createBrowserRouter([
       { path: "system-downloads", element: <SystemDownloads /> },
       { path: "sales-support", element: <SalesSupport /> },
     ],
+  },
+  // 404 Handling
+  {
+    path: "*",
+    element: <Navigate to="/" />,
   },
 ]);
 
