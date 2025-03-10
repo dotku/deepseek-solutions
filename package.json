@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:github": "vite build --mode github",
+    "build:github": "vite build --mode github && pnpm run postbuild",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
