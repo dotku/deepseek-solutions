@@ -1,8 +1,27 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Server, Cpu, Database, Shield, BarChart3, Calculator, Scale, Layers, HardDrive, MessageCircle } from 'lucide-react';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Server,
+  Cpu,
+  Database,
+  Shield,
+  BarChart3,
+  Calculator,
+  Scale,
+  Layers,
+  HardDrive,
+  MessageCircle,
+} from "lucide-react";
 
-function FeatureCard({ icon: Icon, title, description }: { icon: any, title: string, description: string }) {
+function FeatureCard({
+  icon: Icon,
+  title,
+  description,
+}: {
+  icon: any;
+  title: string;
+  description: string;
+}) {
   return (
     <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
       <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
@@ -14,20 +33,20 @@ function FeatureCard({ icon: Icon, title, description }: { icon: any, title: str
   );
 }
 
-function ModelCard({ 
-  size, 
-  memory, 
-  gpu, 
+function ModelCard({
+  size,
+  memory,
+  gpu,
   gpuCount,
   storage,
-  useCase 
-}: { 
-  size: string, 
-  memory: string, 
-  gpu: string,
-  gpuCount: string,
-  storage: string,
-  useCase: string 
+  useCase,
+}: {
+  size: string;
+  memory: string;
+  gpu: string;
+  gpuCount: string;
+  storage: string;
+  useCase: string;
 }) {
   return (
     <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-blue-100">
@@ -58,7 +77,15 @@ function ModelCard({
   );
 }
 
-function Section({ title, children, className = "" }: { title: string, children: React.ReactNode, className?: string }) {
+function Section({
+  title,
+  children,
+  className = "",
+}: {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <section className={`py-16 ${className}`}>
       <div className="container mx-auto px-4">
@@ -74,24 +101,99 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto px-4 py-24">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">DeepSeek 部署教程</h1>
-            <p className="text-xl mb-8">从环境配置到模型优化的完整指南</p>
-            <div className="flex justify-center gap-4">
-              <button 
-                onClick={() => navigate('/docs/quick-start')}
-                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+      {/* Header Navigation */}
+      <header className="bg-blue-800 fixed w-full top-0 z-50">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <a
+                href="https://sienovo.cn"
+                className="text-2xl font-bold text-white hover:text-blue-200 transition-colors"
               >
-                开始学习
+                信迈智科 Sienovo
+              </a>
+            </div>
+            <nav className="hidden md:flex space-x-8">
+              <a
+                href="https://deepseek.sienovo.cn"
+                className="text-white hover:text-blue-200 font-medium"
+              >
+                解决方案
+              </a>
+              <a
+                href="https://sienovo.cn/products"
+                className="text-white hover:text-blue-200 font-medium"
+              >
+                产品中心
+              </a>
+              <a
+                href="https://sienovo.cn/cases"
+                className="text-white hover:text-blue-200 font-medium"
+              >
+                客户案例
+              </a>
+              <a
+                href="https://sienovo.cn/news"
+                className="text-white hover:text-blue-200 font-medium"
+              >
+                新闻中心{" "}
+              </a>
+              <a
+                href="https://sienovo.cn/about"
+                className="text-white hover:text-blue-200 font-medium"
+              >
+                关于我们
+              </a>
+            </nav>
+            <div className="flex items-center">
+              <a
+                href="https://sienovo.cn/contact"
+                className="text-white hover:text-blue-200 font-medium"
+              >
+                联系我们
+              </a>
+              <button className="ml-4 md:hidden text-white hover:text-blue-200">
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
               </button>
-              <button 
-                onClick={() => navigate('/docs/quick-start')}
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white pt-16">
+        <div className="container mx-auto px-4 py-24">
+          <div className="max-w-5xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+              智能大模型解决方案
+            </h1>
+            <h2 className="text-xl sm:text-2xl font-medium mb-8 text-blue-100">
+              为企业提供安全、稳定、高性能的 AI 应用部署方案
+            </h2>
+            <div className="flex flex-col sm:flex-row gap-6 mt-12">
+              <button
+                onClick={() => navigate("/contact")}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-md font-semibold transition-colors text-lg"
               >
-                技术文档
+                立即咨询
+              </button>
+              <button
+                onClick={() => navigate("/solutions")}
+                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-md font-semibold transition-colors text-lg"
+              >
+                了解更多
               </button>
             </div>
           </div>
@@ -110,7 +212,9 @@ export default function App() {
       {/* Model Comparison */}
       <Section title="模型版本对比" className="bg-white">
         <div className="max-w-3xl mx-auto mb-8">
-          <p className="text-gray-600 text-center">DeepSeek 提供多种规格的模型，从轻量级到超大规模，满足不同场景需求</p>
+          <p className="text-gray-600 text-center">
+            DeepSeek 提供多种规格的模型，从轻量级到超大规模，满足不同场景需求
+          </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <ModelCard
@@ -243,16 +347,16 @@ export default function App() {
           {[
             {
               q: "如何选择合适的模型版本？",
-              a: "根据业务需求和硬件配置选择。基础版本适合一般任务，完整版本支持更复杂的场景。1.5B-7B适合个人开发，8B-14B适合企业应用，32B以上适合大规模系统。671B版本主要用于研究机构的前沿探索。"
+              a: "根据业务需求和硬件配置选择。基础版本适合一般任务，完整版本支持更复杂的场景。1.5B-7B适合个人开发，8B-14B适合企业应用，32B以上适合大规模系统。671B版本主要用于研究机构的前沿探索。",
             },
             {
               q: "支持哪些编程语言的接入？",
-              a: "提供 Python、Node.js、Java 等主流语言的 SDK，支持 REST API 方式接入。"
+              a: "提供 Python、Node.js、Java 等主流语言的 SDK，支持 REST API 方式接入。",
             },
             {
               q: "如何确保数据安全？",
-              a: "支持私有化部署，数据本地处理，可配置访问控制和加密传输。"
-            }
+              a: "支持私有化部署，数据本地处理，可配置访问控制和加密传输。",
+            },
           ].map((item, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow">
               <h3 className="text-lg font-semibold mb-2">{item.q}</h3>
@@ -266,7 +370,9 @@ export default function App() {
       <Section className="bg-blue-900 text-white">
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6">需要专业部署支持？</h2>
-          <p className="text-xl mb-8">我们的技术团队提供全程部署指导和优化服务</p>
+          <p className="text-xl mb-8">
+            我们的技术团队提供全程部署指导和优化服务
+          </p>
           <div className="flex flex-col items-center gap-4">
             <div className="flex items-center gap-2 text-lg mb-4">
               <MessageCircle className="h-6 w-6" />
@@ -276,8 +382,8 @@ export default function App() {
               <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
                 联系我们
               </button>
-              <button 
-                onClick={() => navigate('/docs/quick-start')}
+              <button
+                onClick={() => navigate("/docs/quick-start")}
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors"
               >
                 技术文档
