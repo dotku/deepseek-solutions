@@ -10,6 +10,7 @@ const documentationSections = [
   { path: "api-integration", title: "API 集成示例" },
   { path: "performance-monitoring", title: "性能监控" },
   { path: "system-downloads", title: "系统镜像实例下载" },
+  { path: "sales-support", title: "销售支持" },
 ];
 
 export default function DocumentationLayout() {

@@ -11,6 +11,7 @@ import SystemOptimization from './pages/docs/SystemOptimization';
 import ApiIntegration from './pages/docs/ApiIntegration';
 import PerformanceMonitoring from './pages/docs/PerformanceMonitoring';
 import SystemDownloads from './pages/docs/SystemDownloads';
+import SalesSupport from './pages/docs/SalesSupport';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: "api-integration", element: <ApiIntegration /> },
       { path: "performance-monitoring", element: <PerformanceMonitoring /> },
       { path: "system-downloads", element: <SystemDownloads /> },
+      { path: "sales-support", element: <SalesSupport /> },
     ],
   },
 ]);
