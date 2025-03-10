@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://dotku.github.io/deepseek-solutions",
+  "homepage": "https://dotku.us/deepseek-solutions",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
