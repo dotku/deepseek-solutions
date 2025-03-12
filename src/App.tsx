@@ -51,27 +51,39 @@ function ModelCard({
 }) {
   return (
     <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-blue-100">
-      <h3 className="text-lg sm:text-xl font-bold text-blue-600 mb-4">{size}</h3>
+      <h3 className="text-lg sm:text-xl font-bold text-blue-600 mb-4">
+        {size}
+      </h3>
       <div className="space-y-2 sm:space-y-3">
         <div className="flex items-start gap-2">
           <HardDrive className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 mt-1" />
-          <span className="text-sm sm:text-base text-gray-600">内存需求: {memory}</span>
+          <span className="text-sm sm:text-base text-gray-600">
+            内存需求: {memory}
+          </span>
         </div>
         <div className="flex items-start gap-2">
           <Cpu className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 mt-1" />
-          <span className="text-sm sm:text-base text-gray-600">推荐显卡: {gpu}</span>
+          <span className="text-sm sm:text-base text-gray-600">
+            推荐显卡: {gpu}
+          </span>
         </div>
         <div className="flex items-start gap-2">
           <Server className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 mt-1" />
-          <span className="text-sm sm:text-base text-gray-600">显卡数量: {gpuCount}</span>
+          <span className="text-sm sm:text-base text-gray-600">
+            显卡数量: {gpuCount}
+          </span>
         </div>
         <div className="flex items-start gap-2">
           <Database className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 mt-1" />
-          <span className="text-sm sm:text-base text-gray-600">存储空间: {storage}</span>
+          <span className="text-sm sm:text-base text-gray-600">
+            存储空间: {storage}
+          </span>
         </div>
         <div className="flex items-start gap-2">
           <Layers className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 mt-1" />
-          <span className="text-sm sm:text-base text-gray-600">适用场景: {useCase}</span>
+          <span className="text-sm sm:text-base text-gray-600">
+            适用场景: {useCase}
+          </span>
         </div>
       </div>
     </div>
@@ -90,7 +102,9 @@ function Section({
   return (
     <section className={`py-8 sm:py-16 ${className}`}>
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">{title}</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
+          {title}
+        </h2>
         {children}
       </div>
     </section>
@@ -142,7 +156,7 @@ export default function App() {
               >
                 联系我们
               </a>
-              <button 
+              <button
                 className="md:hidden text-white hover:text-blue-200"
                 onClick={() => setIsMobileMenuOpen(true)}
               >
@@ -200,7 +214,9 @@ export default function App() {
                 <p>联系我们：</p>
                 <p className="mt-2">电话：+86-755-86950699</p>
                 <p className="mt-1">邮箱：sales@sienovo.cn</p>
-                <p className="mt-1">地址：深圳市宝安区72区新安街道宝石路29号蓝坤集团A栋4层</p>
+                <p className="mt-1">
+                  地址：深圳市宝安区72区新安街道宝石路29号蓝坤集团A栋4层
+                </p>
               </div>
             </div>
           </div>
@@ -428,7 +444,7 @@ export default function App() {
             </div>
             <div className="w-48 bg-white p-3 rounded-lg">
               <img
-                src={`${import.meta.env.BASE_URL}/images/contact-qr.png`}
+                src={`${import.meta.env.BASE_URL}images/contact-qr.png`}
                 alt="技术支持二维码"
                 className="w-full h-full object-contain"
               />
