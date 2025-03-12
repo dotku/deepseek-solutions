@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Server,
@@ -11,6 +11,7 @@ import {
   Layers,
   HardDrive,
   MessageCircle,
+  X,
 } from "lucide-react";
 
 function FeatureCard({
@@ -18,17 +19,17 @@ function FeatureCard({
   title,
   description,
 }: {
-  icon: any;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   title: string;
   description: string;
 }) {
   return (
-    <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-      <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-        <Icon className="h-6 w-6 text-blue-600" />
+    <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+      <div className="h-10 sm:h-12 w-10 sm:w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+        <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
       </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-lg sm:text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-sm sm:text-base text-gray-600">{description}</p>
     </div>
   );
 }
@@ -49,28 +50,28 @@ function ModelCard({
   useCase: string;
 }) {
   return (
-    <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-blue-100">
-      <h3 className="text-xl font-bold text-blue-600 mb-4">{size}</h3>
-      <div className="space-y-3">
+    <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-blue-100">
+      <h3 className="text-lg sm:text-xl font-bold text-blue-600 mb-4">{size}</h3>
+      <div className="space-y-2 sm:space-y-3">
         <div className="flex items-start gap-2">
-          <HardDrive className="h-5 w-5 text-blue-500 mt-1" />
-          <span className="text-gray-600">内存需求: {memory}</span>
+          <HardDrive className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 mt-1" />
+          <span className="text-sm sm:text-base text-gray-600">内存需求: {memory}</span>
         </div>
         <div className="flex items-start gap-2">
-          <Cpu className="h-5 w-5 text-blue-500 mt-1" />
-          <span className="text-gray-600">推荐显卡: {gpu}</span>
+          <Cpu className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 mt-1" />
+          <span className="text-sm sm:text-base text-gray-600">推荐显卡: {gpu}</span>
         </div>
         <div className="flex items-start gap-2">
-          <Server className="h-5 w-5 text-blue-500 mt-1" />
-          <span className="text-gray-600">显卡数量: {gpuCount}</span>
+          <Server className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 mt-1" />
+          <span className="text-sm sm:text-base text-gray-600">显卡数量: {gpuCount}</span>
         </div>
         <div className="flex items-start gap-2">
-          <Database className="h-5 w-5 text-blue-500 mt-1" />
-          <span className="text-gray-600">存储空间: {storage}</span>
+          <Database className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 mt-1" />
+          <span className="text-sm sm:text-base text-gray-600">存储空间: {storage}</span>
         </div>
         <div className="flex items-start gap-2">
-          <Layers className="h-5 w-5 text-blue-500 mt-1" />
-          <span className="text-gray-600">适用场景: {useCase}</span>
+          <Layers className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 mt-1" />
+          <span className="text-sm sm:text-base text-gray-600">适用场景: {useCase}</span>
         </div>
       </div>
     </div>
@@ -87,9 +88,9 @@ function Section({
   className?: string;
 }) {
   return (
-    <section className={`py-16 ${className}`}>
+    <section className={`py-8 sm:py-16 ${className}`}>
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">{title}</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">{title}</h2>
         {children}
       </div>
     </section>
@@ -98,6 +99,16 @@ function Section({
 
 export default function App() {
   const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const menuItems = [
+    { href: "https://deepseek.sienovo.cn", text: "解决方案" },
+    { href: "https://sienovo.cn/#products", text: "产品中心" },
+    { href: "https://sienovo.cn/#cases", text: "客户案例" },
+    { href: "https://sienovo.cn/#news", text: "新闻中心" },
+    { href: "https://sienovo.cn/#about", text: "关于我们" },
+    { href: "https://sienovo.cn/#contact", text: "联系我们" },
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -108,51 +119,33 @@ export default function App() {
             <div className="flex items-center">
               <a
                 href="https://sienovo.cn"
-                className="text-2xl font-bold text-white hover:text-blue-200 transition-colors"
+                className="text-xl sm:text-2xl font-bold text-white hover:text-blue-200 transition-colors"
               >
                 信迈智科 Sienovo
               </a>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <a
-                href="https://deepseek.sienovo.cn"
-                className="text-white hover:text-blue-200 font-medium"
-              >
-                解决方案
-              </a>
-              <a
-                href="https://sienovo.cn/#products"
-                className="text-white hover:text-blue-200 font-medium"
-              >
-                产品中心
-              </a>
-              <a
-                href="https://sienovo.cn/#cases"
-                className="text-white hover:text-blue-200 font-medium"
-              >
-                客户案例
-              </a>
-              <a
-                href="https://sienovo.cn/#news"
-                className="text-white hover:text-blue-200 font-medium"
-              >
-                新闻中心{" "}
-              </a>
-              <a
-                href="https://sienovo.cn/#about"
-                className="text-white hover:text-blue-200 font-medium"
-              >
-                关于我们
-              </a>
+              {menuItems.slice(0, -1).map((item) => (
+                <a
+                  key={item.text}
+                  href={item.href}
+                  className="text-white hover:text-blue-200 font-medium"
+                >
+                  {item.text}
+                </a>
+              ))}
             </nav>
             <div className="flex items-center">
               <a
                 href="https://sienovo.cn/#contact"
-                className="text-white hover:text-blue-200 font-medium"
+                className="hidden md:block text-white hover:text-blue-200 font-medium"
               >
                 联系我们
               </a>
-              <button className="ml-4 md:hidden text-white hover:text-blue-200">
+              <button 
+                className="md:hidden text-white hover:text-blue-200"
+                onClick={() => setIsMobileMenuOpen(true)}
+              >
                 <svg
                   className="h-6 w-6"
                   fill="none"
@@ -172,26 +165,68 @@ export default function App() {
         </div>
       </header>
 
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 bg-blue-900/95 z-50 md:hidden">
+          <div className="flex flex-col h-full">
+            <div className="flex justify-between items-center p-4">
+              <a
+                href="https://sienovo.cn"
+                className="text-xl font-bold text-white"
+              >
+                信迈智科 Sienovo
+              </a>
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white p-2"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            <nav className="flex flex-col p-4 space-y-4">
+              {menuItems.map((item) => (
+                <a
+                  key={item.text}
+                  href={item.href}
+                  className="text-white hover:text-blue-200 font-medium text-lg py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.text}
+                </a>
+              ))}
+            </nav>
+            <div className="mt-auto p-4">
+              <div className="text-white text-sm">
+                <p>联系我们：</p>
+                <p className="mt-2">电话：+86-755-86950699</p>
+                <p className="mt-1">邮箱：sales@sienovo.cn</p>
+                <p className="mt-1">地址：深圳市宝安区72区新安街道宝石路29号蓝坤集团A栋4层</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white pt-16">
-        <div className="container mx-auto px-4 py-24">
+        <div className="container mx-auto px-4 py-12 sm:py-24">
           <div className="max-w-5xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6">
               智能大模型解决方案
             </h1>
-            <h2 className="text-xl sm:text-2xl font-medium mb-8 text-blue-100">
+            <h2 className="text-lg sm:text-2xl font-medium mb-6 sm:mb-8 text-blue-100">
               为企业提供安全、稳定、高性能的 AI 应用部署方案
             </h2>
-            <div className="flex flex-col sm:flex-row gap-6 mt-12">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-8 sm:mt-12">
               <button
                 onClick={() => navigate("/contact")}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-md font-semibold transition-colors text-lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold transition-colors text-base sm:text-lg w-full sm:w-auto"
               >
                 立即咨询
               </button>
               <button
                 onClick={() => navigate("/docs")}
-                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-md font-semibold transition-colors text-lg"
+                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold transition-colors text-base sm:text-lg w-full sm:w-auto"
               >
                 了解更多
               </button>
@@ -367,7 +402,7 @@ export default function App() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-blue-900 text-white">
+      <Section title="联系我们" className="bg-blue-900 text-white">
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-6">需要专业部署支持？</h2>
           <p className="text-xl mb-8">
