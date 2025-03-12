@@ -1,5 +1,8 @@
 {
   "ignoreCommand": "if [ \"$VERCEL_GIT_BRANCH\" = \"gh-pages\" ]; then echo 'VERCEL_IGNORE=true' >> $GITHUB_ENV; exit 1; fi",
+  "build": {
+    "ignoreCommand": "if [[ \"$VERCEL_GIT_COMMIT_REF\" == \"pg-pages\" ]]; then exit 1; fi"
+  },
   "rewrites": [
     {
       "source": "/(.*)",
