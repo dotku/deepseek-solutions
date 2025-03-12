@@ -1,5 +1,4 @@
 {
-  "ignoreCommand": "echo 'Current branch: $VERCEL_GIT_COMMIT_REF'; if [ \"$VERCEL_GIT_COMMIT_REF\" = \"pg-pages\" ]; then exit 1; fi; exit 0;",
   "rewrites": [
     {
       "source": "/(.*)",
